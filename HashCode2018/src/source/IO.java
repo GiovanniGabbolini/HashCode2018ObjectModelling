@@ -19,7 +19,7 @@ public class IO{
 
     private IO() {}
 	
-	public void read(String arg, Collection<Ride> rides, Collection<Vehicle> vehicles, int T, int F, int N, int B,
+	void read(String arg, Collection<Ride> rides, Collection<Vehicle> vehicles, int T, int F, int N, int B,
 			int R, int C) throws IOException {
 		ArrayList<Integer> al = new ArrayList<>();
 		al.add(0);
@@ -52,7 +52,7 @@ public class IO{
 		T = al.get(6);
 	}	
 
-	public void write(String arg, Collection<Vehicle> vehicles) throws FileNotFoundException, UnsupportedEncodingException {
+	void write(String arg, Collection<Vehicle> vehicles) throws FileNotFoundException, UnsupportedEncodingException {
 		PrintWriter writer = new PrintWriter(arg, "UTF-8");
 		String r = "";
 		for(Vehicle v : vehicles)

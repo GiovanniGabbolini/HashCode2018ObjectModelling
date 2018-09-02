@@ -2,9 +2,9 @@ package source;
 
 public class Ride {
 	
-	public boolean completed;
-	public Coordinate si, fi;
-	public int es, lf, code;
+	boolean completed;
+	Coordinate si, fi;
+	int es, lf, code;
 	static int c = 0;
 	
 	public Ride(Coordinate si, Coordinate fi, int es, int lf) {
@@ -17,10 +17,30 @@ public class Ride {
 		c++;
 	}
 	
-	public static void zeroCounter() {
+	static void zeroCounter() {
 		c = 0;
 	}
 	
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public Coordinate getSi() {
+		return si;
+	}
+
+	public Coordinate getFi() {
+		return fi;
+	}
+
+	public int getEs() {
+		return es;
+	}
+
+	public int getLf() {
+		return lf;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Ride))

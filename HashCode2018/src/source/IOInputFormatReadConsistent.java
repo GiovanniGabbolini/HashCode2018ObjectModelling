@@ -1,4 +1,4 @@
-package testing;
+package source;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.File;
@@ -18,18 +18,18 @@ class IOInputFormatReadConsistent {
 		IO.getInstance().read(path, rides, vehicles, T, F, N, B, R, C);
 		
 		assertTrue(
-				rides.get(0).es == 2 &&
-				rides.get(1).es == 0 &&
-				rides.get(2).es == 0 &&
-				rides.get(0).lf == 9 &&
-				rides.get(1).lf == 9 &&
-				rides.get(2).lf == 9 &&
-				rides.get(0).si.equals(new Coordinate(0, 0)) &&
-				rides.get(1).si.equals(new Coordinate(1, 2)) &&
-				rides.get(2).si.equals(new Coordinate(2, 0)) &&
-				rides.get(0).fi.equals(new Coordinate(1, 3)) &&
-				rides.get(1).fi.equals(new Coordinate(1, 0)) &&
-				rides.get(2).fi.equals(new Coordinate(2, 2)) &&
+				rides.get(0).getEs() == 2 &&
+				rides.get(1).getEs() == 0 &&
+				rides.get(2).getEs() == 0 &&
+				rides.get(0).getLf() == 9 &&
+				rides.get(1).getLf() == 9 &&
+				rides.get(2).getLf() == 9 &&
+				rides.get(0).getSi().equals(new Coordinate(0, 0)) &&
+				rides.get(1).getSi().equals(new Coordinate(1, 2)) &&
+				rides.get(2).getSi().equals(new Coordinate(2, 0)) &&
+				rides.get(0).getFi().equals(new Coordinate(1, 3)) &&
+				rides.get(1).getFi().equals(new Coordinate(1, 0)) &&
+				rides.get(2).getFi().equals(new Coordinate(2, 2)) &&
 				!rides.get(0).equals(rides.get(1)) &&
 				!rides.get(1).equals(rides.get(2)) &&
 				rides.size() == 3 &&

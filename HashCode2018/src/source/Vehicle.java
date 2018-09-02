@@ -5,7 +5,7 @@ public class Vehicle {
 
 	int timeIstantFree, code;
 	Coordinate position;
-	ArrayList<Integer> ridesAssigned;
+	ArrayList<Ride> ridesAssigned;
 	static int c = 0;
 	
 	public Vehicle() {
@@ -26,7 +26,7 @@ public class Vehicle {
 		else{
 			timeIstantFree = timeInstant + position.distance(ride.si) + ride.si.distance(ride.fi)
 							+ ((timeInstant + position.distance(ride.si) < ride.es) ? ride.es - (timeInstant + position.distance(ride.si)) : 0);
-			ridesAssigned.add(ride.code);
+			ridesAssigned.add(ride);
 			ride.completed = true;
 		}
 	}
@@ -35,17 +35,25 @@ public class Vehicle {
 		return timeInstant >= timeIstantFree;
 	}
 	
-	public static void zeroCounter() {
+	static void zeroCounter() {
 		c = 0;
 	}
 	
-	public String getAssignedRides() {
+	String getAssignedRides() {
 		String r = ((Integer)ridesAssigned.size()).toString();
-		for(Integer i : ridesAssigned)
-			r += " " + i.toString();
+		for(Ride i : ridesAssigned)
+			r += " " + String.valueOf(i.code);
 		return r;
 	}
 	
+	public Coordinate getPosition() {
+		return position;
+	}
+
+	public ArrayList<Ride> getRidesAssigned() {
+		return ridesAssigned;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Vehicle))

@@ -1,4 +1,4 @@
-package testing;
+package source;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,11 +9,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
-
-import source.Coordinate;
-import source.IO;
-import source.Ride;
-import source.Vehicle;
 
 class IOOutputFormatWriteConsistent {
 

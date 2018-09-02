@@ -1,6 +1,7 @@
-package source;
+package scheduling;
 
 import java.io.IOException;
+import source.Controller;
 
 public class HashCode {
 
@@ -12,12 +13,12 @@ public class HashCode {
 		for(String arg : args) {
 			
 			Controller.getInstance().run(new BoardScheduler((r, v, t, T, F, N, B, R, C) -> {
-				if(t + v.position.distance(r.si) + r.si.distance(r.fi) > r.lf)
+				if(t + v.getPosition().distance(r.getSi()) + r.getSi().distance(r.getFi()) > r.getLf())
 					return Integer.MIN_VALUE;
 				else {
-					return ((t + v.position.distance(r.si) <= r.es) ? B : 0) -
-							v.position.distance(r.si) -
-							((t + v.position.distance(r.si) < r.es) ? r.es - t - v.position.distance(r.si) : 0);
+					return ((t + v.getPosition().distance(r.getSi()) <= r.getEs()) ? B : 0) -
+							v.getPosition().distance(r.getSi()) -
+							((t + v.getPosition().distance(r.getSi()) < r.getEs()) ? r.getEs() - t - v.getPosition().distance(r.getSi()) : 0);
 				}
 			}), arg);
 			

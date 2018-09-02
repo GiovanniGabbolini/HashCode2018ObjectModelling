@@ -1,12 +1,8 @@
-package testing;
+package source;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-
-import source.Coordinate;
-import source.Ride;
-import source.Vehicle;
 
 class RideCannotBeAssignedMultipleTimes {
 

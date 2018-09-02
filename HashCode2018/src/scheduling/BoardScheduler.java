@@ -1,8 +1,13 @@
-package source;
+package scheduling;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.PriorityQueue;
+
+import source.IScheduler;
+import source.Ride;
+import source.Vehicle;
 
 public class BoardScheduler implements IScheduler{
 	
@@ -11,7 +16,7 @@ public class BoardScheduler implements IScheduler{
 	public BoardScheduler(IBoardSchedulerScore i) {
 		this.i = i;
 	}
-
+	
 	@Override
 	public Collection<Vehicle> assignRides(ArrayList<Ride> rides, ArrayList<Vehicle> vehicles, int T, int F, int N, int B,
 			int R, int C) {
