@@ -14,7 +14,10 @@ import org.junit.runners.Suite.SuiteClasses;
 	RideTestEquality.class,
 	CoordinatesTestEquality.class,
 	IOInputFormatReadConsistent.class,
-	IOOutputFormatWriteConsistent.class
+	IOOutputFormatWriteConsistent.class,
+	RideCannotBeAssignedMultipleTimes.class,
+	VehicleBusyCannotGetAnotherRide.class,
+	RideCannotBeAssignedBeforeItsEarliestStart.class,
 })
 public class SuiteFixedPoints {
 

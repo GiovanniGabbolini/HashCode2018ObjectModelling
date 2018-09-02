@@ -16,17 +16,19 @@ public class Vehicle {
 		c++;
 	}
 	
-	/*
-	 * todo: prevent rides from being assigned multiple times
-	 * 		 prevent vehicles to have time conflicting rides assigned
-	 * 		 prevent rides to be assigned before their earliest start
-	 * 		 maybe using exceptions
-	 */
-	public void assignRide(Ride ride, int timeInstant) {
-		timeIstantFree = timeInstant + position.distance(ride.si) + ride.si.distance(ride.fi)
+	public void assignRide(Ride ride, int timeInstant) throws IllegalArgumentException{
+		if(ride.completed) 
+			throw new IllegalArgumentException("Ride already completed, cannot be assigned to another Vehicle");
+		else if(!this.isFree(timeInstant))
+			throw new IllegalArgumentException("Veichle is busy, cannot get another ride at this time instant");
+		else if(ride.es > timeInstant)
+			throw new IllegalArgumentException("A ride cannot be assigned before its earliest start");
+		else{
+			timeIstantFree = timeInstant + position.distance(ride.si) + ride.si.distance(ride.fi)
 							+ ((timeInstant + position.distance(ride.si) < ride.es) ? ride.es - (timeInstant + position.distance(ride.si)) : 0);
-		ridesAssigned.add(ride.code);
-		ride.completed = true;
+			ridesAssigned.add(ride.code);
+			ride.completed = true;
+		}
 	}
 	
 	public boolean isFree(int timeInstant) {
