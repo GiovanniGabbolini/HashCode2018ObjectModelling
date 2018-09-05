@@ -15,7 +15,8 @@ class IOInputFormatReadConsistent {
 		ArrayList<Vehicle> vehicles = new ArrayList<>();
 		int T = 0, F = 0, N = 0, B = 0, R = 0, C = 0;
 		String path = new File("").getAbsolutePath().concat("/files/a_example.in");
-		IO.getInstance().read(path, rides, vehicles, T, F, N, B, R, C);
+		IO io = new IO();
+		io.read(path, rides, vehicles, T, F, N, B, R, C);
 		
 		assertTrue(
 				rides.get(0).getEs() == 2 &&

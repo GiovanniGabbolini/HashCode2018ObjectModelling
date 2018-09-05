@@ -10,9 +10,9 @@ class VehicleBusyCannotGetAnotherRide {
 	void exceptionTesting() {
 	    assertThrows(IllegalArgumentException.class,
 	            ()->{
-	            	Ride r = new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 5);
-	            	Ride r1 = new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 5);
-	    	 		Vehicle v = new Vehicle();
+	            	Ride r = new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 5, 0);
+	            	Ride r1 = new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 5, 1);
+	    	 		Vehicle v = new Vehicle(0);
 	    	 		v.assignRide(r, 0);
 	    	 		v.assignRide(r, 1);
 	            }, "Veichle is busy, cannot get another ride at this time instant");

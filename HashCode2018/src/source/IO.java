@@ -10,14 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class IO{
-
-	private static final IO io = new IO();
-
-    public static IO getInstance() {
-        return io;
-    }
-
-    private IO() {}
 	
 	void read(String arg, Collection<Ride> rides, Collection<Vehicle> vehicles, int T, int F, int N, int B,
 			int R, int C) throws IOException {
@@ -34,15 +26,15 @@ public class IO{
 						al.add(Integer.parseInt(parts[4]));
 						al.add(Integer.parseInt(parts[5]));
 						for(int i = 0; i < al.get(3); i++)
-							vehicles.add(new Vehicle());
+							vehicles.add(new Vehicle(al.get(0)));
 					}
 					else {
 						Ride r = new Ride(new Coordinate(Integer.parseInt(parts[0]), Integer.parseInt(parts[1])),
 											new Coordinate(Integer.parseInt(parts[2]), Integer.parseInt(parts[3])),
-											Integer.parseInt(parts[4]), Integer.parseInt(parts[5]));
+											Integer.parseInt(parts[4]), Integer.parseInt(parts[5]), al.get(0));
 						rides.add(r);
 					}
-					al.add(0, al.get(0) + 1);;
+					al.add(0, al.remove(0) + 1);;
 				});
 		R = al.get(1);
 		C = al.get(2);

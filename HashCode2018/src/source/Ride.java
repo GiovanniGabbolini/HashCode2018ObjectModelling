@@ -5,20 +5,14 @@ public class Ride {
 	boolean completed;
 	Coordinate si, fi;
 	int es, lf, code;
-	static int c = 0;
 	
-	public Ride(Coordinate si, Coordinate fi, int es, int lf) {
+	public Ride(Coordinate si, Coordinate fi, int es, int lf, int c) {
 		this.completed = false;
 		this.si = si;
 		this.fi = fi;
 		this.es = es;
 		this.lf = lf;
 		this.code = c;
-		c++;
-	}
-	
-	static void zeroCounter() {
-		c = 0;
 	}
 	
 	public boolean isCompleted() {

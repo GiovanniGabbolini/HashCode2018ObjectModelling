@@ -17,14 +17,13 @@ class IOOutputFormatWriteConsistent {
 		String path = new File("").getAbsolutePath().concat("/files/test.out");
 		
 		ArrayList<Vehicle> vehicles = new ArrayList<>();
-		Vehicle.zeroCounter();
-		Ride.zeroCounter();
-		vehicles.add(new Vehicle());
-		vehicles.add(new Vehicle());
-		vehicles.get(0).assignRide(new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 9), 0);
-		vehicles.get(1).assignRide(new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 9), 0);
-		vehicles.get(1).assignRide(new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 9), 0);
-		IO.getInstance().write(path, vehicles);
+		vehicles.add(new Vehicle(0));
+		vehicles.add(new Vehicle(1));
+		vehicles.get(0).assignRide(new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 9, 0), 0);
+		vehicles.get(1).assignRide(new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 9, 0), 0);
+		vehicles.get(1).assignRide(new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 9, 0), 0);
+		IO io = new IO();
+		io.write(path, vehicles);
 		
 		ArrayList<Integer> al = new ArrayList<>();
 		al.add(Integer.valueOf(0));

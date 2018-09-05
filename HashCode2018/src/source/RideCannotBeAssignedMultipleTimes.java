@@ -10,8 +10,8 @@ class RideCannotBeAssignedMultipleTimes {
 	void exceptionTesting() {
 	    assertThrows(IllegalArgumentException.class,
 	            ()->{
-	            	Ride r = new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 5);
-	    	 		Vehicle v = new Vehicle();
+	            	Ride r = new Ride(new Coordinate(0, 0), new Coordinate(1, 2), 0, 5, 0);
+	    	 		Vehicle v = new Vehicle(0);
 	    	 		v.assignRide(r, 0);
 	    	 		v.assignRide(r, 1);
 	            }, "Ride already completed, cannot be assigned to another Vehicle");

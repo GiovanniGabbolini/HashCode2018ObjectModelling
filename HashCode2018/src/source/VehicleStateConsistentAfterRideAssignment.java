@@ -12,8 +12,8 @@ class VehicleStateConsistentAfterRideAssignment {
 		Ride r;
 		
 		// test a ride that can begin at the moment of the earliest start
-		v = new Vehicle();		
-		r = new Ride(new Coordinate(1, 2), new Coordinate(1, 4), 3, 8);
+		v = new Vehicle(0);		
+		r = new Ride(new Coordinate(1, 2), new Coordinate(1, 4), 3, 8, 0);
 		v.assignRide(r, 0);
 		assertTrue(!v.isFree(0));
 		assertTrue(!v.isFree(1));
@@ -23,8 +23,8 @@ class VehicleStateConsistentAfterRideAssignment {
 		assertTrue(v.isFree(5));
 		
 		// test a ride that can begin after the moment of the earliest start
-		v = new Vehicle();		
-		r = new Ride(new Coordinate(1, 2), new Coordinate(1, 4), 0, 8);
+		v = new Vehicle(1);		
+		r = new Ride(new Coordinate(1, 2), new Coordinate(1, 4), 0, 8, 1);
 		v.assignRide(r, 0);
 		assertTrue(!v.isFree(0));
 		assertTrue(!v.isFree(1));

@@ -5,27 +5,22 @@ import java.util.ArrayList;
 
 public class Controller {
 	
-	static int T, F, N, B, R, C;
-	static ArrayList<Ride> rides;
-	static ArrayList<Vehicle> vehicles;
-	
-	private static final Controller c = new Controller();
+	int T, F, N, B, R, C;
+	ArrayList<Ride> rides;
+	ArrayList<Vehicle> vehicles;
+	IScheduler s;
 
-    public static Controller getInstance() {
-        return c;
-    }
-
-    private Controller() {
+    public Controller(IScheduler s) {
     	rides = new ArrayList<>();
     	vehicles = new ArrayList<>();
+    	this.s = s;
     }
 	
-	public void run(IScheduler s, String arg) throws IOException {
-		Ride.zeroCounter();
-		Vehicle.zeroCounter();
-		IO.getInstance().read(arg, rides, vehicles, T, F, N, B, R, C);;
+	public void run(String arg) throws IOException {
+		IO io = new IO();
+		io.read(arg, rides, vehicles, T, F, N, B, R, C);;
 		s.assignRides(rides, vehicles, T, F, N, B, R, C);
-		IO.getInstance().write(arg, vehicles);
+		io.write(arg, vehicles);
 	}
 	
 }

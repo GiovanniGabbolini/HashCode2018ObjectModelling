@@ -11,8 +11,7 @@ public class HashCode {
 	
 	public static void boardSchedule(String[] args) throws IOException {
 		for(String arg : args) {
-			
-			Controller.getInstance().run(new BoardScheduler((r, v, t, T, F, N, B, R, C) -> {
+			Controller c = new Controller(new BoardScheduler((r, v, t, T, F, N, B, R, C) -> {
 				if(t + v.getPosition().distance(r.getSi()) + r.getSi().distance(r.getFi()) > r.getLf())
 					return Integer.MIN_VALUE;
 				else {
@@ -20,8 +19,8 @@ public class HashCode {
 							v.getPosition().distance(r.getSi()) -
 							((t + v.getPosition().distance(r.getSi()) < r.getEs()) ? r.getEs() - t - v.getPosition().distance(r.getSi()) : 0);
 				}
-			}), arg);
-			
+			}));
+			c.run(arg);
 		}
 	}
 

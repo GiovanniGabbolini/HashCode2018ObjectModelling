@@ -6,14 +6,12 @@ public class Vehicle {
 	int timeIstantFree, code;
 	Coordinate position;
 	ArrayList<Ride> ridesAssigned;
-	static int c = 0;
 	
-	public Vehicle() {
+	public Vehicle(int c) {
 		code = c;
 		timeIstantFree = 0;
 		position = new Coordinate(0, 0);
 		ridesAssigned = new ArrayList<>();
-		c++;
 	}
 	
 	public void assignRide(Ride ride, int timeInstant) throws IllegalArgumentException{
@@ -33,10 +31,6 @@ public class Vehicle {
 	
 	public boolean isFree(int timeInstant) {
 		return timeInstant >= timeIstantFree;
-	}
-	
-	static void zeroCounter() {
-		c = 0;
 	}
 	
 	String getAssignedRides() {

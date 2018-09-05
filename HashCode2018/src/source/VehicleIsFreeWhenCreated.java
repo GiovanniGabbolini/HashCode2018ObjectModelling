@@ -9,7 +9,7 @@ class VehicleIsFreeWhenCreated {
 
 	@Test
 	void test() {
-		 Vehicle v = new Vehicle();
+		 Vehicle v = new Vehicle(0);
 		 assertTrue(v.isFree(0));
 	}
 
